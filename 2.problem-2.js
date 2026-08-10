@@ -1,0 +1,3 @@
+const filterActiveUsers = (users) => {
+
+}

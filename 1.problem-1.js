@@ -1,4 +1,5 @@
 const studentIntroduction = (student) => {
+    
     if (typeof student !== 'object') {
         return "Invalid"
     } else if (!Object.hasOwn(student, 'name') && !Object.hasOwn(student, 'age') && !Object.hasOwn(student, 'course')) {
