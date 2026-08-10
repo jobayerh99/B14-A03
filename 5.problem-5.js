@@ -1,28 +1,24 @@
 const generateLeaderboard = (students) => {
-    if (!Array.isArray === students) {
+    if (!Array.isArray(students)) {
         return "Invalid";
     }
 
-    if (students.length === []) {
+    if (students.length === 0) {
         return "Invalid";
     }
 
-    const qualified = students.filter(student => {
-        student.score > 70;
-    });
+    const isAllHaveScoreAndNumber = students.every(std => typeof std === 'number');
 
-    const names = qualified.map(({ name }) => {
-        name.toUpperCase();
-    });
+    if (!isAllHaveScoreAndNumber) {
+        return "invalid"
+    }
 
-    return names.slice(0, 2);
+    const qualified = students.filter(student => student.score >= 70);
+
+    const names = qualified.map(({ name }) => name.toUpperCase());
+
+    return names.slice(0, 3);
 }
 
 
-console.log(generateLeaderboard([
-    { name: "Rafi", score: 90 },
-    { name: "Sadia", score: 65 },
-    { name: "Karim", score: 85 },
-    { name: "Nafis", score: 75 }
-]
-))
+console.log(generateLeaderboard([{name:"Rafi",score:"90"}]))
